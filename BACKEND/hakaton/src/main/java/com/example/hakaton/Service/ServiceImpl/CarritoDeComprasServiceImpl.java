@@ -1,10 +1,12 @@
-package Service.ServiceImpl;
+package com.example.hakaton.Service.ServiceImpl;
+
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import Model.CarritoDeCompras;
-import Model.Producto;
-import Model.User;
-import Repository.CarritoDeComprasRepository;
+import com.example.hakaton.Model.CarritoDeCompras;
+import com.example.hakaton.Model.Producto;
+import com.example.hakaton.Model.User;
+import com.example.hakaton.Model.MetodoPago;
+import com.example.hakaton.Repository.CarritoDeComprasRepository;
 
 @Service
 public class CarritoDeComprasServiceImpl {
@@ -61,5 +63,15 @@ public class CarritoDeComprasServiceImpl {
         if (usuario == null) return 0.0;
         CarritoDeCompras carrito = repository.obtenerCarritoPorUsuario(usuario);
         return (carrito == null) ? 0.0 : carrito.getTotal();
+    }
+
+    // NUEVO: método de pago
+    public boolean pagarCarrito(User usuario, MetodoPago metodoPago) {
+        if (usuario == null || metodoPago == null) return false;
+        CarritoDeCompras carrito = repository.obtenerCarritoPorUsuario(usuario);
+        if (carrito == null) return false;
+        boolean exito = carrito.pagar(metodoPago);
+        repository.guardarCarrito(carrito); // actualizar carrito vacío
+        return exito;
     }
 }

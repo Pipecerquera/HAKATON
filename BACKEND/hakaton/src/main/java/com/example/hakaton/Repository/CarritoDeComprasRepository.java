@@ -1,12 +1,12 @@
-package Repository;
+package com.example.hakaton.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import Model.CarritoDeCompras;
-import Model.User;
+import com.example.hakaton.Model.CarritoDeCompras;
+import com.example.hakaton.Model.User;
 
 @Repository
 public class CarritoDeComprasRepository {

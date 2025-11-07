@@ -1,6 +1,6 @@
-package Repository;
+package com.example.hakaton.Repository;
 
-import Model.User;
+import com.example.hakaton.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

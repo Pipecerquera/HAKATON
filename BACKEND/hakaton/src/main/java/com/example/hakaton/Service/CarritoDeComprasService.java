@@ -1,7 +1,7 @@
-package Service;
-import Model.CarritoDeCompras;
-import Model.Producto;
-import Model.User;
+package com.example.hakaton.Service;
+import com.example.hakaton.Model.CarritoDeCompras;
+import com.example.hakaton.Model.Producto;
+import com.example.hakaton.Model.User;
 
 
 

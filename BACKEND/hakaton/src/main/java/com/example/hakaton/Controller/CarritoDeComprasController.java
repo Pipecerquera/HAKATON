@@ -1,15 +1,17 @@
-package Controller;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+package com.example.hakaton.Controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import Model.CarritoDeCompras;
-import Model.Producto;
-import Model.User;
-import Service.ServiceImpl.CarritoDeComprasServiceImpl;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-
-
-
+import com.example.hakaton.Model.CarritoDeCompras;
+import com.example.hakaton.Model.MetodoPago;
+import com.example.hakaton.Model.Producto;
+import com.example.hakaton.Model.User;
+import com.example.hakaton.Service.ServiceImpl.CarritoDeComprasServiceImpl;
 
 @RestController
 @RequestMapping("/api/carrito")
@@ -65,6 +67,20 @@ public class CarritoDeComprasController {
         double total = service.obtenerTotal(usuario);
         return ResponseEntity.ok(total);
     }
+    
+    @PostMapping("/pagar")
+    public ResponseEntity<String> pagarCarrito(@RequestBody PagoRequest request) {
+        if (request == null || request.usuario == null || request.metodoPago == null)
+            return ResponseEntity.badRequest().build();
+
+        boolean exito = service.pagarCarrito(request.usuario, request.metodoPago);
+
+        if (exito)
+            return ResponseEntity.ok("Pago realizado exitosamente.");
+        else
+            return ResponseEntity.status(500).body("Error al procesar el pago o carrito vacío.");
+    }
+
     public static class AgregarRemoverRequest {
         public User usuario;
         public Producto producto;
@@ -73,6 +89,17 @@ public class CarritoDeComprasController {
         public AgregarRemoverRequest(User usuario, Producto producto) {
             this.usuario = usuario;
             this.producto = producto;
+        }
+    }
+
+    public static class PagoRequest {
+        public User usuario;
+        public MetodoPago metodoPago;
+
+        public PagoRequest() {}
+        public PagoRequest(User usuario, MetodoPago metodoPago) {
+            this.usuario = usuario;
+            this.metodoPago = metodoPago;
         }
     }
 }

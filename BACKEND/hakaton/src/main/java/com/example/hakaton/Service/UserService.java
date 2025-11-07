@@ -1,6 +1,6 @@
-package Service;
+package com.example.hakaton.Service;
 
-import Model.User;   
+import com.example.hakaton.Model.User;   
 
 import java.util.List;
 import java.util.Optional;

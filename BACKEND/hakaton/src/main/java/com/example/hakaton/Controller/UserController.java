@@ -1,4 +1,4 @@
-package Controller;
+package com.example.hakaton.Controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import Model.User;
-import Service.UserService;
+import com.example.hakaton.Model.User;
+import com.example.hakaton.Service.UserService;
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "*")

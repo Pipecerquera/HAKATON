@@ -1,9 +1,9 @@
-package Service;
+package com.example.hakaton.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-import Model.Producto;
+import com.example.hakaton.Model.Producto;
 
 public interface ProductoService {
     Producto createProducto(Producto producto);

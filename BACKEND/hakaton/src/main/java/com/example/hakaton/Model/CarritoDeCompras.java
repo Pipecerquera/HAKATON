@@ -1,8 +1,7 @@
-package Model;
+package com.example.hakaton.Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class CarritoDeCompras {
     private User usuario;
@@ -40,5 +39,27 @@ public class CarritoDeCompras {
 
     public User getUsuario() {
         return usuario;
+    }
+
+    public boolean pagar(MetodoPago metodoPago) {
+        if (productos.isEmpty()) return false;
+
+        switch (metodoPago) {
+            case PSE:
+                System.out.println("Procesando pago por PSE...");
+                break;
+            case TARJETA:
+                System.out.println("Procesando pago con tarjeta...");
+                break;
+            case PAYPAL:
+                System.out.println("Procesando pago con PayPal...");
+                break;
+            default:
+                return false;
+        }
+
+        vaciarCarrito();
+        System.out.println("Pago realizado exitosamente.");
+        return true;
     }
 }

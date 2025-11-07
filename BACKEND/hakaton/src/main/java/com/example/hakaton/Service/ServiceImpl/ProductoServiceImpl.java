@@ -1,4 +1,4 @@
-package Service.ServiceImpl;
+package com.example.hakaton.Service.ServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import Model.Producto;
-import Repository.ProductoRepository;
-import Service.ProductoService;
+import com.example.hakaton.Model.Producto;
+import com.example.hakaton.Repository.ProductoRepository;
+import com.example.hakaton.Service.ProductoService;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {

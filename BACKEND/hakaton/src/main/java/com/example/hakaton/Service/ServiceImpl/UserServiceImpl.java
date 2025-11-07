@@ -1,12 +1,12 @@
-package Service.ServiceImpl;
+package com.example.hakaton.Service.ServiceImpl;
 
 
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import Model.User;
-import Repository.UserRepository;
-import Service.UserService;
+import com.example.hakaton.Model.User;
+import com.example.hakaton.Repository.UserRepository;
+import com.example.hakaton.Service.UserService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package Model;
+package com.example.hakaton.Model;
 
 import jakarta.persistence.*;
 

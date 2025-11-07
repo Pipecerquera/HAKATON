@@ -1,7 +1,7 @@
-package Controller;
+package com.example.hakaton.Controller;
 
-import Model.Producto;
-import Service.ProductoService;
+import com.example.hakaton.Model.Producto;
+import com.example.hakaton.Service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
